@@ -55,8 +55,9 @@
                                 </li>
                             @endif
                         @else
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search DJ lives..." aria-label="Search">
+                            <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('live.search') }}">
+                                @csrf
+                                <input class="form-control mr-sm-2" name="keyword" value="{{ Request::get('keyword') }}" type="search" placeholder="Search DJ lives..." aria-label="Search">
                             </form>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
