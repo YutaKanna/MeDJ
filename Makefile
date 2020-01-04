@@ -9,7 +9,7 @@ build: ## build development environment with laradock
 	docker-compose run --rm php-cli php artisan migrate
 
 clear-docker:
-    ## Container を削除
+	## Container を削除
 	docker rm $(docker ps -q -a)
 	## Imageを削除
 	docker rmi $(docker images -q)
