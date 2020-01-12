@@ -26,23 +26,15 @@ class LiveController extends Controller
     {
         if($request->has('keyword')) {
             $searchQuery = $request->get('keyword');
-
             $results = Youtube::search($searchQuery, 2);
 
-            dd($results);
-
             $videoIds = [];
-
             foreach($results as $result) {
-                $hoge = $result->id->videoId;
-                dd($hoge);
                 $array = [
                     'videoId' => $result->id->videoId
                 ];
                 array_push($videoIds, $array);
             }
-
-            dd($videoIds);
         }
 
         return view('live.search.result', compact('videoIds'));
