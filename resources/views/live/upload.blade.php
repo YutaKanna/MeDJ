@@ -45,8 +45,9 @@ player.stopVideo();
         <div class="row justify-content-center">
             <div class="col">
                 <div class="mt-4 mx-auto">
-                    <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;"></i>
+                    <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="clickBtn1()"></i>
                     <iframe id="player" width="560" pause="810" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&fs=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p id="p1">保存する</p>
                 </div>
             </div>
         </div>
@@ -57,5 +58,19 @@ player.stopVideo();
         ytPause.addEventListener('click', function() {
             player.pauseVideo();
         });
+
+        document.getElementById("p1").style.display ="none";
+
+        function clickBtn1(){
+            const p1 = document.getElementById("p1");
+
+            if(p1.style.display=="block"){
+                // noneで非表示
+                p1.style.display ="none";
+            }else{
+                // blockで表示
+                p1.style.display ="block";
+            }
+        }
     </script>
 @endsection
