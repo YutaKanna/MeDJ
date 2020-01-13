@@ -38,6 +38,27 @@ player.stopVideo();
 }
 
 </script>
+
+<style>
+    .btn {
+        padding: 10px 24px;
+        border: 0 none;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: black;
+        background: yellow;
+        display: inline-block;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: .4s;
+        width: 150px;
+    }
+    .btn:hover {
+        color: black;
+    }
+</style>
+
 @endsection
 
 @section('content')
@@ -47,7 +68,7 @@ player.stopVideo();
                 <div class="mt-4 mx-auto">
                     <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="clickBtn1()"></i>
                     <iframe id="player" width="560" pause="810" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&fs=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p id="p1">保存する</p>
+                    <button type="submit" id="save" class="btn mt-3 mx-auto center-block">保存する</button>
                 </div>
             </div>
         </div>
@@ -59,10 +80,10 @@ player.stopVideo();
             player.pauseVideo();
         });
 
-        document.getElementById("p1").style.display ="none";
+        document.getElementById("save").style.display ="none";
 
         function clickBtn1(){
-            const p1 = document.getElementById("p1");
+            const p1 = document.getElementById("save");
 
             if(p1.style.display=="block"){
                 // noneで非表示
