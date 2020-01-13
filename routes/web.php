@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     // Live
     Route::post('/', 'LiveController@search')->name('live.search');
-    // Route::post('/', 'LiveController@store')->name('live.store');
+    Route::get('{videoId}/upload', 'LiveController@upload')->name('live.upload');
     // Route::get('{live}/edit', 'LiveController@edit')->name('live.edit');
     // Route::put('{live}', 'LiveController@update')->name('live.update');
     // Route::delete('{live}', 'LiveController@destroy')->name('live.destroy');

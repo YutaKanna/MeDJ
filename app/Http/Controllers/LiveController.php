@@ -43,24 +43,12 @@ class LiveController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param
+     * @param Request $request,
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function upload(Request $request, $videoId)
     {
-        // lyric
-        $lyric = new Lyric;
-        $lyric->part_of_lyrics = $lyrics_request->part_of_lyrics;
-        $lyric->artist = $lyrics_request->artist;
-        $lyric->song = $lyrics_request->song;
-
-        $lyric->save();
-
-        $artist_and_song_for_Youtube = $lyric->artist.$space.$lyric->song;
-
-        $youtube_video_id = Youtube::search($artist_and_song_for_Youtube, 1)[0]->id->videoId;
-
-        return redirect()->route('posts.lyrics.index')->with('success_message', ('新しい歌詞を投稿しました'));
+        return view('live.upload', ['videoId' => $videoId]);
     }
 
     /**
