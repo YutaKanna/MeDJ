@@ -66,7 +66,7 @@ player.stopVideo();
         <div class="row justify-content-center">
             <div class="col">
                 <div class="mt-4 mx-auto">
-                    <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="clickBtnShowSave(), clickBtnShowReset()"></i>
+                    <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="ShowSaveBtn(), ShowResetBtn()"></i>
                     <iframe id="player" width="560" pause="810" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&fs=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <button type="submit" id="save" class="btn mt-3 mx-auto center-block">保存する</button>
                     <button type="submit" id="reset" class="btn mt-3 mx-auto center-block">リセット</button>
@@ -91,7 +91,7 @@ player.stopVideo();
         // 保存する
         document.getElementById("save").style.display ="none";
 
-        function clickBtnShowSave(){
+        function ShowSaveBtn(){
             const p1 = document.getElementById("save");
 
             if(p1.style.display=="block"){
@@ -105,7 +105,7 @@ player.stopVideo();
 
         document.getElementById("reset").style.display ="none";
 
-        function clickBtnShowReset(){
+        function ShowResetBtn(){
             const p1 = document.getElementById("reset");
 
             if(p1.style.display=="block"){
