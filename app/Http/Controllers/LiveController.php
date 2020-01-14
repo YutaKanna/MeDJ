@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Live;
 use Alaouy\Youtube\Facades\Youtube;
+use Illuminate\Http\Request;
 
 class LiveController extends Controller
 {
@@ -41,24 +42,32 @@ class LiveController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display the specified resource.
      *
      * @param Request $request,
      * @return \Illuminate\Http\Response
      */
-    public function upload(Request $request, $videoId)
+    public function showUpload(Request $request, $videoId)
     {
         return view('live.upload', ['videoId' => $videoId]);
     }
 
     /**
-     * Display the specified resource.
+     * Store a newly created resource in storage.
      *
      * @param
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function Upload(Request $request, $videoId)
     {
-        //
+        $live = new Live;
+        $live->video_id = $videoId;
+        $startTime = floor($request->startTime);
+        $live->start_time = $startTime;
+        $live->finish_time = $startTime + 15;
+
+        $live->save();
+
+        return redirect()->route('top');
     }
 }
