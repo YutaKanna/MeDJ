@@ -59,8 +59,9 @@ class LiveController extends Controller
      */
     public function Upload(Request $request)
     {
-        $a = $request->uploading;
+        $uploadingStartTime = $request->uploadingStartTime;
+        $uploadingFinishTime = $uploadingStartTime + 15;
 
-        dd($a);
+        return redirect()->route('top');
     }
 }
