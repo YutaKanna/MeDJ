@@ -66,24 +66,47 @@ player.stopVideo();
         <div class="row justify-content-center">
             <div class="col">
                 <div class="mt-4 mx-auto">
-                    <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="clickBtn1()"></i>
+                    <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="clickBtn1(), clickBtn2()"></i>
                     <iframe id="player" width="560" pause="810" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&fs=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <button type="submit" id="save" class="btn mt-3 mx-auto center-block">保存する</button>
+                    <button type="submit" id="reset" class="btn mt-3 mx-auto center-block">リセット</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // ハサミ
         var ytPause = document.getElementById('upload');
         ytPause.addEventListener('click', function() {
             player.pauseVideo();
         });
 
+        // リセット
+        var ytPlay = document.getElementById('reset');
+        ytPlay.addEventListener('click', function() {
+            player.playVideo();
+        });
+
+        // 保存する
         document.getElementById("save").style.display ="none";
 
         function clickBtn1(){
             const p1 = document.getElementById("save");
+
+            if(p1.style.display=="block"){
+                // noneで非表示
+                p1.style.display ="none";
+            }else{
+                // blockで表示
+                p1.style.display ="block";
+            }
+        }
+
+        document.getElementById("reset").style.display ="none";
+
+        function clickBtn2(){
+            const p1 = document.getElementById("reset");
 
             if(p1.style.display=="block"){
                 // noneで非表示
