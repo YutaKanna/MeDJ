@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Live;
 use Alaouy\Youtube\Facades\Youtube;
+use Illuminate\Http\Request;
 
 class LiveController extends Controller
 {
@@ -57,10 +58,14 @@ class LiveController extends Controller
      * @param
      * @return \Illuminate\Http\Response
      */
-    public function Upload(Request $request)
+    public function Upload(Request $request, $videoId)
     {
-        $uploadingStartTime = $request->uploadingStartTime;
-        $uploadingFinishTime = $uploadingStartTime + 15;
+        $live = new Live;
+        $live->video_id = $videoId;
+        $live->start_time = $request->startTime;
+        $live->finish_time = $request->startTime + 15;
+
+        $live->save();
 
         return redirect()->route('top');
     }

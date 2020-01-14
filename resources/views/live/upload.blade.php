@@ -72,7 +72,7 @@ player.stopVideo();
                         <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="ShowSaveBtn(), ShowResetBtn()"></i>
                         <iframe id="player" width="560" pause="810" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&fs=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <button type="submit" id="save" class="btn mt-3 mx-auto center-block">保存する</button>
-                        <input id="uploadingStartTime" type="hidden" name="uploadingStartTime" value="" />
+                        <input id="startTime" type="hidden" name="startTime" value="" />
                     <form>
                     <button type="submit" id="reset" class="btn mt-3 mx-auto center-block">リセット</button>
                 </div>
@@ -85,8 +85,8 @@ player.stopVideo();
         var ytPause = document.getElementById('upload');
         ytPause.addEventListener('click', function() {
             player.pauseVideo();
-            var uploadingStartTime = player.getCurrentTime();
-            document.getElementById('uploadingStartTime').value = uploadingStartTime;
+            var startTime = player.getCurrentTime();
+            document.getElementById('startTime').value = startTime;
         });
 
         // リセット
