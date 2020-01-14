@@ -62,8 +62,9 @@ class LiveController extends Controller
     {
         $live = new Live;
         $live->video_id = $videoId;
-        $live->start_time = $request->startTime;
-        $live->finish_time = $request->startTime + 15;
+        $startTime = floor($request->startTime);
+        $live->start_time = $startTime;
+        $live->finish_time = $startTime + 15;
 
         $live->save();
 
