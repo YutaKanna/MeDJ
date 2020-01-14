@@ -66,9 +66,14 @@ player.stopVideo();
         <div class="row justify-content-center">
             <div class="col">
                 <div class="mt-4 mx-auto">
-                    <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="ShowSaveBtn(), ShowResetBtn()"></i>
-                    <iframe id="player" width="560" pause="810" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&fs=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <button type="submit" id="save" class="btn mt-3 mx-auto center-block">保存する</button>
+                    <form method="POST" action="{{ route('live.upload', $videoId) }}">
+                        @csrf
+
+                        <i id="upload" class="fas fa-cut fa-5x" style="color: #55acee;" onclick="ShowSaveBtn(), ShowResetBtn()"></i>
+                        <iframe id="player" width="560" pause="810" height="315" src="https://www.youtube.com/embed/{{ $videoId }}?rel=0&fs=0&modestbranding=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <button type="submit" id="save" class="btn mt-3 mx-auto center-block">保存する</button>
+                        <input type="hidden" name="uploading" value="{{ $currentTime ?? null }}" />
+                    <form>
                     <button type="submit" id="reset" class="btn mt-3 mx-auto center-block">リセット</button>
                 </div>
             </div>
@@ -80,6 +85,7 @@ player.stopVideo();
         var ytPause = document.getElementById('upload');
         ytPause.addEventListener('click', function() {
             player.pauseVideo();
+            var currentTime = player.getCurrentTime();
         });
 
         // リセット

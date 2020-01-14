@@ -41,24 +41,26 @@ class LiveController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display the specified resource.
      *
      * @param Request $request,
      * @return \Illuminate\Http\Response
      */
-    public function upload(Request $request, $videoId)
+    public function showUpload(Request $request, $videoId)
     {
         return view('live.upload', ['videoId' => $videoId]);
     }
 
     /**
-     * Display the specified resource.
+     * Store a newly created resource in storage.
      *
      * @param
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function Upload(Request $request)
     {
-        //
+        $a = $request->uploading;
+
+        dd($a);
     }
 }
