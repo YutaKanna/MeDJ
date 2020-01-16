@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f436830648b6d7b6bd78e5bd1911c54f",
+    "content-hash": "56a8e095ab71ac4b3cc2ad3f81e3e438",
     "packages": [
         {
             "name": "alaouy/youtube",
@@ -5588,7 +5588,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.1.3",
+        "ext-intl": "*"
     },
     "platform-dev": []
 }
