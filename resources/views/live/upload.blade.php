@@ -65,7 +65,7 @@ player.stopVideo();
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
-                <div class="mt-4 mx-auto">
+                <div class="mt-4 mx-auto text-center">
                     <form method="POST" action="{{ route('live.upload', $videoId) }}">
                         @csrf
 
