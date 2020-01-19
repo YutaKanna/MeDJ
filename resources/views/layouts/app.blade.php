@@ -28,7 +28,7 @@
     @yield('head')
 </head>
 <body>
-    <div class="text-center">
+    <div class="">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -49,7 +49,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ __('投稿する') }}</a>
+                                <a class="nav-link" href="{{ route('live.to_input') }}">{{ __('投稿する') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -60,10 +60,6 @@
                                 </li>
                             @endif
                         @else
-                            <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('live.search') }}">
-                                @csrf
-                                <input class="form-control mr-sm-2" name="keyword" value="{{ Request::get('keyword') }}" type="search" placeholder="Search DJ lives..." aria-label="Search">
-                            </form>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

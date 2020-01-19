@@ -15,11 +15,10 @@ Auth::routes();
 
 Route::get('/', 'TopController@index')->name('top');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::group(['middleware' => ['auth']], function() {
     // Live
-    Route::post('/', 'LiveController@search')->name('live.search');
+    Route::get('/input', 'LiveController@toInput')->name('live.to_input');
+    Route::post('/input', 'LiveController@search')->name('live.search');
     Route::get('{videoId}/upload', 'LiveController@showUpload')->name('live.show.upload-screen');
     Route::post('{videoId}/upload', 'LiveController@upload')->name('live.upload');
     // Route::get('{live}/edit', 'LiveController@edit')->name('live.edit');

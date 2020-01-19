@@ -70,4 +70,9 @@ class LiveController extends Controller
 
         return redirect()->route('top');
     }
+
+    public function toInput()
+    {
+        return view('live.input');
+    }
 }
