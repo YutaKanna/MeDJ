@@ -68,7 +68,7 @@ class LiveController extends Controller
 
         $live->save();
 
-        return redirect()->route('top');
+        return redirect()->route('top')->with('success_message', ('sent successfully！'));
     }
 
     public function toInput()
